@@ -16,8 +16,10 @@ function Header() {
   )
 }
 
-  function TeamMember() {
-    return (
+  function TeamMember() {             /* Proplara ayır */     /* Members kısmını propslarla oluştur. */ /* Members(x)  x kısmını proplarla doldur.  */
+    return (                          /* const ile teammemberdatayı oluştur. Map fonksiyonunu çağır. */
+                                      /* key eklemen gerekecek hatayı al sonra key ekle */
+                                      /* Employee react'a başla.*/   /*Hatırlıyorsan eğer bi incrementation fonksiyonu yaz. */
       <div>
         <ul className="team">
           <li className="cofounder">
@@ -35,9 +37,9 @@ function Header() {
 
   function Members() {
     return (
-        <div>
+        <ul className="team">
           <TeamMember />
-        </div>
+        </ul>
     );
   };
 
