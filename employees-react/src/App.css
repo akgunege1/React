@@ -1,0 +1,6 @@
+/* Thumb sinifinin CSS girdisini gir. App.jsx'e import etmen gerekiyor unutma */
+
+img{
+    width: 25%;
+    height: 25%;
+}
