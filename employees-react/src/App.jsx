@@ -9,7 +9,7 @@ function App() {
 }
 function Header() {
   return (
-    <div>
+    <div className="title">
       <h1>Team Members</h1>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quod quae nihil officiis eius architecto sunt velit ipsa error ducimus.</p>
     </div>
