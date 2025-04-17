@@ -32,11 +32,6 @@ h2 {
 	text-align: center;
 }
 
-.title {
-	text-align: center;
-	color: #fff;
-}
-
 .team {
 	padding: 2em 0 2em 2.5em;
 	margin: 0;
@@ -66,7 +61,7 @@ h2 {
 	);
 }
 
-.myThumb {
+.thumb {
 	width: 13vmin;
 	height: 13vmin;
 	float: left;
@@ -84,7 +79,7 @@ h2 {
 	padding: 0.5em;
 }
 
-.member:nth-of-type(even) .myThumb {
+.member:nth-of-type(even) .thumb {
 	--deg: 86deg;
 	float: right;
 	margin-left: 2em;
@@ -92,7 +87,7 @@ h2 {
 	transform: rotate(4deg);
 }
 
-.myThumb img {
+.thumb img {
 	width: 100%;
 	height: 100%;
 	border-radius: 0.25em;
@@ -106,18 +101,18 @@ h2 {
 	filter: drop-shadow(0px 20px 10px #0008);
 }
 
-.member:hover .myThumb {
+.member:hover .thumb {
 	padding: 0.1em;
 	transition: var(--trans);
 	transform: rotate(-1deg);
 	--deg: -89deg;
 }
 
-.member:nth-of-type(even):hover .myThumb {
+.member:nth-of-type(even):hover .thumb {
 	--deg: 91deg;
 }
 
-.member:hover .myThumb img {
+.member:hover .thumb img {
 	filter: none;
 	transition: var(--trans);
 }
