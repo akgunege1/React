@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 const teamMembersData = [
   {
     name: "Chris Coyier",
@@ -82,5 +83,12 @@ function TeamMember({ name, description, image }) {
     </li>
   );
 }
+
+  TeamMember.propTypes = {
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired
+  };
+
 
 export default App;
