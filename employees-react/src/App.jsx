@@ -1,5 +1,7 @@
 import Header from "./components/header";
 import { useState } from "react";
+import Table from "./components/table";
+import Footer from "./components/footer";
 
 
 function App(){
@@ -16,14 +18,14 @@ function App(){
 
 
     return(
-        <div>
-            <Header />
-            <div>
-                <h2>Counter:{count}</h2>
-                <button onClick={HandleIncrement}>Add Employee</button>
-                <button onClick={HandleDecrement}>Remove Employee</button>
+       <div className="container">
+            <div className="table-wrapper">
+                <Header />
+                <Table />
+                <Footer />
+
             </div>
-        </div>
+       </div>
     )
 }
 

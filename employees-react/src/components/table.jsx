@@ -37,13 +37,13 @@ function Table(){
 
     return(
         <div>
-            <table class="table table-striped table-hover">
+            <table className="table table-striped table-hover">
 <thead>
     <tr>
         <th>
-            <span class="custom-checkbox">
+            <span className="custom-checkbox">
                 <input type="checkbox" id="selectAll"/>
-                <label for="selectAll"></label>
+                <label htmlFor="selectAll"></label>
             </span>
         </th>
         <th>Name</th>
