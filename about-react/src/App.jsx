@@ -72,8 +72,8 @@ function Members() {
 
 function TeamMember({ name, description, image }) {
   return (
-    <li className="cofounder">
-      <div className="myThumb">
+    <li className="member">
+      <div className="thumb">
         <img src={image} alt={name} />
       </div>
       <div className="description">
