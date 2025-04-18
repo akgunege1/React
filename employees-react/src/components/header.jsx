@@ -1,16 +1,43 @@
 import { useState } from "react";
 
 function Header() {
-
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
+  const [formData, setFormData] = useState({
+    name: "",
+    mail: "",
+    adress: "",
+    phone: ""
+  });
 
-  function OpenModal() {
+  function OpenAddModal() {
     setIsAddModalOpen(true);
   }
 
-  function closeModal() {
+  function closeAddModal() {
     setIsAddModalOpen(false);
+  }
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log("Form gönderildi:", formData);
+
+    // Buraya backend'e veri gönderme fonksiyonu ekleyebilirsin
+    closeAddModal(); // Formdan sonra modal kapansın
+    setFormData({
+      name: "",
+      mail: "",
+      adress: "",
+      phone: ""
+    });
   }
 
   return (
@@ -23,41 +50,94 @@ function Header() {
             </h2>
           </div>
           <div className="col-sm-6">
-            <button onClick={OpenModal} className="btn btn-success">
+            <button onClick={OpenAddModal} className="btn btn-success">
               <i className="material-icons">&#xE147;</i>{" "}
               <span>Add New Employee</span>
             </button>
-            <button onClick={closeModal} className="btn btn-danger">
+            <button onClick={closeAddModal} className="btn btn-danger">
               <i className="material-icons">&#xE15C;</i> <span>Delete</span>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Modal JSX burada */}
       {isAddModalOpen && (
         <div className="modal fade show d-block" tabIndex="-1">
           <div className="modal-dialog">
             <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Add Employee</h5>
-                <button
-                  type="button"
-                  className="close"
-                  onClick={closeModal}
-                >
-                  <span>&times;</span>
-                </button>
-              </div>
-              <div className="modal-body">
-                <p>Form veya içerik buraya gelecek.</p>
-              </div>
-              <div className="modal-footer">
-                <button className="btn btn-secondary" onClick={closeModal}>
-                  Close
-                </button>
-                <button className="btn btn-primary">Save</button>
-              </div>
+              <form onSubmit={handleSubmit}>
+                <div className="modal-header">
+                  <h5 className="modal-title">Add Employee</h5>
+                  <button
+                    type="button"
+                    className="close"
+                    onClick={closeAddModal}
+                  >
+                    <span>&times;</span>
+                  </button>
+                </div>
+                <div className="modal-body">
+                  <div className="form-group">
+                    <label>Name</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      required
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label>Email</label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      required
+                      name="mail"
+                      value={formData.mail}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label>Address</label>
+                    <textarea
+                      className="form-control"
+                      required
+                      name="adress"
+                      value={formData.adress}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label>Phone</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      required
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={closeAddModal}
+                  >
+                    Close
+                  </button>
+                  <button type="submit" className="btn btn-primary">
+                    Save
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -66,4 +146,4 @@ function Header() {
   );
 }
 
-          export default Header;
+export default Header;
