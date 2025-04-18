@@ -4,29 +4,51 @@ import Table from "./components/table";
 import Footer from "./components/footer";
 
 
-function App(){
-
-    const [count,setCount]= useState(0);
-   
-    function HandleIncrement(){
-        setCount(count+1);
-    }
-
-    function HandleDecrement(){
-        setCount(count-1)
-    }
-
-
-    return(
-       <div className="container">
-            <div className="table-wrapper">
-                <Header />
-                <Table />
-                <Footer />
-
-            </div>
-       </div>
-    )
-}
-
-export default App;
+function App() {
+    const [calisanlar, setCalisanlar] = useState([
+      {
+        name: "Thomas Hardy",
+        mail: "thomashardy@mail.com",
+        adress: "89 Chiaroscuro Rd, Portland, USA",
+        phone: "(171) 555-2222"
+      },
+      {
+        name: "Dominique Perrier",
+        mail: "dominiqueperrier@mail.com",
+        adress: "Obere Str. 57, Berlin, Germany",
+        phone: "(313) 555-5735"
+      },
+      {
+        name: "Maria Anders",
+        mail: "mariaanders@mail.com",
+        adress: "25, rue Lauriston, Paris, France",
+        phone: "(503) 555-9931"
+      },
+      {
+        name: "Fran Wilson",
+        mail: "franwilson@mail.com",
+        adress: "C/ Araquil, 67, Madrid, Spain",
+        phone: "(204) 619-5731"
+      },
+      {
+        name: "Martin Blank",
+        mail: "martinblank@mail.com",
+        adress: "Via Monte Bianco 34, Turin, Italy",
+        phone: "(480) 631-2097"
+      }
+    ]);
+  
+    const addEmployee = (newEmployee) => {
+      setCalisanlar((prev) => [...prev, newEmployee]);
+    };
+  
+    return (
+      <div>
+        <Header onAddEmployee={addEmployee} />
+        <Table calisanlar={calisanlar} />
+        <Footer />
+      </div>
+    );
+  }
+  
+  export default App;

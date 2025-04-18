@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Header() {
+function Header({ onAddEmployee }) {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -28,10 +28,9 @@ function Header() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    onAddEmployee(formData);
     console.log("Form gönderildi:", formData);
-
-    // Buraya backend'e veri gönderme fonksiyonu ekleyebilirsin
-    closeAddModal(); // Formdan sonra modal kapansın
+    closeAddModal();
     setFormData({
       name: "",
       mail: "",
