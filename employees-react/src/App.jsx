@@ -24,12 +24,7 @@ function App() {
         adress: "25, rue Lauriston, Paris, France",
         phone: "(503) 555-9931"
       },
-      {
-        name: "Fran Wilson",
-        mail: "franwilson@mail.com",
-        adress: "C/ Araquil, 67, Madrid, Spain",
-        phone: "(204) 619-5731"
-      },
+  
       {
         name: "Martin Blank",
         mail: "martinblank@mail.com",

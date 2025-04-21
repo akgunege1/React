@@ -26,6 +26,17 @@ function Header({ onAddEmployee }) {
     }));
   }
 
+
+  function handleCancel(){
+   closeAddModal();
+   setFormData({
+    name: "",
+    mail: "",
+    adress: "",
+    phone: ""
+  });
+    
+  }
   function handleSubmit(e) {
     e.preventDefault();
     onAddEmployee(formData);
@@ -70,7 +81,7 @@ function Header({ onAddEmployee }) {
                   <button
                     type="button"
                     className="close"
-                    onClick={closeAddModal}
+                    onClick={handleCancel}
                   >
                     <span>&times;</span>
                   </button>
@@ -128,7 +139,7 @@ function Header({ onAddEmployee }) {
                   <button
                     type="button"
                     className="btn btn-secondary"
-                    onClick={closeAddModal}
+                    onClick={handleCancel}
                   >
                     Close
                   </button>

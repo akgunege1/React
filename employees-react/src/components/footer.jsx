@@ -4,7 +4,7 @@ function Footer(){
     return (
         <div>
             	<div className="clearfix">
-                <div className="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+                <div className="hint-text">Showing <b>4</b> out of <b>25</b> entries</div>
                 <ul className="pagination">
                     <li className="page-item disabled"><a href="#">Previous</a></li>
                     <li className="page-item"><a href="#" className="page-link">1</a></li>
