@@ -28,10 +28,10 @@ function Table({ calisanlar }) {
                 <td>{calisan.adress}</td>
                 <td>{calisan.phone}</td>
                 <td>
-                  <a href="#editEmployeeModal" className="edit">
+                  <a className="edit">
                     <i className="material-icons">&#xE254;</i>
                   </a>
-                  <a href="#deleteEmployeeModal" className="delete">
+                  <a className="delete">
                     <i className="material-icons">&#xE872;</i>
                   </a>
                 </td>
