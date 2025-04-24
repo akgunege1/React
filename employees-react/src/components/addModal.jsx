@@ -38,7 +38,7 @@ function AddModal({ onAddEmployee, setIsAddModalOpen }) {
             phone: ""
         });
     }
-
+ // ASASDASD
     return (
         <div className="modal fade show d-block" tabIndex="-1">
             <div className="modal-dialog">
