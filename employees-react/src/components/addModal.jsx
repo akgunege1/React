@@ -1,8 +1,55 @@
-import React from 'react'
+ import React, { useState } from 'react'
 
-export const AddModal = () => {
-  return (
-     
+export const AddModal = (addEmployee) => {
+
+        
+        const [isAddModalOpen, setIsAddModalOpen] = useState(false)
+
+        const [formData, setFormData]= useState({
+            name:'',
+            mail:'',
+            adress:'',
+            phone:''    
+            }
+        )
+
+        const closeModal = () => setIsAddModalOpen(false)
+
+        function handleChange(event) {
+            const { name, value } = event.target;
+            setFormData((prevData) => ({
+              ...prevData,
+              [name]: value
+            }));
+          }
+
+        function handleSubmit(e){
+            e.preventDefault();
+            addEmployee(formData);
+            console.log('Form Gönderildi', formData);
+            closeModal();
+            setFormData({
+                name:'',
+                mail:'',
+                adress:'',
+                phone:''
+            })
+            }
+
+            function handleCancel(){
+                closeModal();
+                setFormData({
+                 name: "",
+                 mail: "",
+                 adress: "",
+                 phone: ""
+               });
+            }
+            {isAddModalOpen &&(
+
+
+            )}
+            return (
         <div className="modal fade show d-block" tabIndex="-1">
     <div className="modal-dialog">
         <div className="modal-content">
@@ -12,7 +59,7 @@ export const AddModal = () => {
                     <button
                         type="button"
                         className="close"
-                        onClick={() => {}}
+                        onClick={handleCancel()}
                     >
                         <span>&times;</span>
                     </button>
@@ -26,7 +73,7 @@ export const AddModal = () => {
                             required
                             name="name"
                             value={() => {}}
-                            onChange={() => {}}
+                            onChange={handleChange}
                         />
                     </div>
 
@@ -38,7 +85,7 @@ export const AddModal = () => {
                             required
                             name="mail"
                             value={() => {}}
-                            onChange={() => {}}
+                            onChange={handleChange}
                         />
                     </div>
 
@@ -49,7 +96,7 @@ export const AddModal = () => {
                             required
                             name="adress"
                             value={() => {}}
-                            onChange={() => {}}
+                            onChange={handleChange}
                         />
                     </div>
 
@@ -61,7 +108,7 @@ export const AddModal = () => {
                             required
                             name="phone"
                             value={() => {}}
-                            onChange={() => {}}
+                            onChange={handleChange}
                         />
                     </div>
                 </div>
@@ -70,11 +117,13 @@ export const AddModal = () => {
                     <button
                         type="button"
                         className="btn btn-secondary"
-                        onClick={() => {}}
+                        onClick={handleCancel}
                     >
                         Close
                     </button>
-                    <button type="submit" className="btn btn-primary">
+                    <button type="submit" 
+                            className="btn btn-primary"
+                            onClick={handleSubmit}>
                         Save
                     </button>
                 </div>

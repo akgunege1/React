@@ -1,0 +1,42 @@
+    const [formData, setFormData]= useState({
+            name:'',
+            mail:'',
+            adress:'',
+            phone:''
+    }
+)
+
+    // onCloseAddModal={CloseAddModal}
+
+    
+      function handleChange(event) {
+        const { name, value } = event.target;
+        setFormData((prevData) => ({
+          ...prevData,
+          [name]: value
+        }));
+      }
+    
+    
+      function handleCancel(){
+       closeAddModal();
+       setFormData({
+        name: "",
+        mail: "",
+        adress: "",
+        phone: ""
+      });
+        
+      }
+      function handleSubmit(e) {
+        e.preventDefault();
+        onAddEmployee(formData);
+        console.log("Form gönderildi:", formData);
+        closeAddModal();
+        setFormData({
+          name: "",
+          mail: "",
+          adress: "",
+          phone: ""
+        });
+      }
